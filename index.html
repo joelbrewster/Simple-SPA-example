@@ -33,6 +33,11 @@
 
         <script type="text/babel">
             var destination = document.querySelector("#container");
+            var { Router,
+            Route,
+            IndexRoute,
+            IndexLink,
+            Link } = ReactRouter;
 
             var Home = React.createClass({
             render: function() {
@@ -65,11 +70,11 @@
             }
             });
             ReactDOM.render(
-            <ReactRouter.Router>
-                <ReactRouter.Route path="/" component={App}>
+            <Router>
+                <Route path="/" component={App}>
 
-                </ReactRouter.Route>
-            </ReactRouter.Router>,
+                </Route>
+            </Router>,
             destination
             );
 
