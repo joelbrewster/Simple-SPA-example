@@ -21,6 +21,9 @@
              display: inline-block;
              padding: 20px;
          }
+         .active {
+             background-color: #484848;
+         }
 
         </style>
     </head>
@@ -52,15 +55,38 @@
             }
             });
 
+            var Link2 = React.createClass({
+            render: function() {
+            return (
+            <div>
+                <h2>Link2</h2>
+                <p>Link goes to link2</p>
+            </div>
+            );
+            }
+            });
+
+
+            var Link3 = React.createClass({
+            render: function() {
+            return (
+            <div>
+                <h2>Link3</h2>
+                <p>Link goes to link3</p>
+            </div>
+            );
+            }
+            });
+
             var App = React.createClass({
             render: function() {
             return (
             <div>
                 <h1>Simple SPA</h1>
                 <ul className="header">
-                    <li>Home</li>
-                    <li>Stuff</li>
-                    <li>Contact</li>
+                    <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+                    <li><Link to="/link2" activeClassName="active">Link2</Link></li>
+                    <li><Link to="/link3" activeClassName="active">Link3</Link></li>
                 </ul>
                 <div className="content">
                     {this.props.children}
@@ -73,13 +99,13 @@
             ReactDOM.render(
             <Router>
                 <Route path="/" component={App}>
+                    <IndexRoute component={Home}/>
+                    <Route path="link2" component={Link2} />
+                    <Route path="link3" component={Link3} />
                 </Route>
             </Router>,
             destination
             );
-
-
-
         </script>
     </body>
 
