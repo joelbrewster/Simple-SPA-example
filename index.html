@@ -8,6 +8,19 @@
         <script src="https://npmcdn.com/react-router@2.4.0/umd/ReactRouter.min.js"></script>
 
         <style>
+         body {
+             background-color: #232323;
+             color: #f0f0f0;
+             padding: 10px;
+             margin: 0;
+         }
+         h1, h2, p, ul, li {
+             font-family: Helvetica, Arial, sans-serif;
+         }
+         ul.header li a {
+             display: inline-block;
+             padding: 20px;
+         }
 
         </style>
     </head>
@@ -21,6 +34,19 @@
         <script type="text/babel">
             var destination = document.querySelector("#container");
 
+            var Home = React.createClass({
+            render: function() {
+            return (
+            <div>
+                <h2>Hi!</h2>
+                <p>
+                    Stuff goes here
+                </p>
+            </div>
+            );
+            }
+            });
+
             var App = React.createClass({
             render: function() {
             return (
@@ -32,7 +58,7 @@
                     <li>Contact</li>
                 </ul>
                 <div className="content">
-
+                    <Home/>
                 </div>
             </div>
             )
@@ -46,6 +72,9 @@
             </ReactRouter.Router>,
             destination
             );
+
+
+
         </script>
     </body>
 
